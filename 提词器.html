@@ -38,6 +38,7 @@
             background: #2e76c9;
         }
 
+
         .secondHighlight {
             font-size: 100px;
         }
@@ -119,6 +120,7 @@
             const secondHighlight = document.querySelectorAll('#linesContainer>div')[currentIndex + 1];
             const thirdHighlight = document.querySelectorAll('#linesContainer>div')[currentIndex + 2];
 
+
             if (highlightedLine) {
 
                 document.querySelectorAll('#linesContainer>div').forEach((d) => {
@@ -130,20 +132,21 @@
 
                 // Add highlight to the clicked div
                 highlightedLine.classList.add('highlight');
-                secondHighlight.classList.add('secondHighlight');
-                thirdHighlight.classList.add('thirdHighlight');
+                secondHighlight?.classList.add('secondHighlight');
+                thirdHighlight?.classList.add('thirdHighlight');
 
+                setTimeout(() => {
+                    const containerHeight = linesContainer.offsetHeight;
+                    const lineHeight = highlightedLine.offsetHeight;
+                    const lineOffsetTop = highlightedLine.offsetTop;
 
-                const containerHeight = linesContainer.offsetHeight;
-                const lineHeight = highlightedLine.offsetHeight;
-                const lineOffsetTop = highlightedLine.offsetTop;
-
-                // Calculate scroll position to center the highlighted line
-                const scrollTop = lineOffsetTop - (containerHeight / 2) + (lineHeight / 2);
-                linesContainer.scrollTo({
-                    top: scrollTop,
-                    behavior: 'smooth',
-                });
+                    // Calculate scroll position to center the highlighted line
+                    const scrollTop = lineOffsetTop - (containerHeight / 2) + (lineHeight / 2);
+                    linesContainer.scrollTo({
+                        top: scrollTop,
+                        behavior: 'smooth',
+                    })
+                }, 0);
             }
         }
 
