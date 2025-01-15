@@ -16,7 +16,7 @@
             overflow: hidden;
             flex-direction: column;
             font-size: 60px;
-            background-color: black;
+            background-color: #0E0C23;
             color: #ffffff;
             /* 禁止页面滚动 */
         }
@@ -33,10 +33,11 @@
         }
 
         .highlight {
-            font-size: 120px;
+            margin: 20px 0px;
+            font-size: 120px !important;
             color: #ffffff !important;
             font-weight: bold;
-            background: #2e76c9;
+            background: #973DDD;
         }
 
 
@@ -56,64 +57,68 @@
             border-radius: 10px;
             color: white !important;
         }
-        .role{
+
+        .role {
             margin-right: 10px;
         }
-        div.erdog{
-            color: rgb(237 148 233);
+
+        div.erdog {
+            color: #FECE31
         }
 
         .erdog .role {
-            background: rgb(237 148 233);
+            background: #FECE31
         }
 
         div.songjiang {
-            color: rgb(16, 80, 37);
+            color: #F082AC
         }
 
         .songjiang .role {
-            background: rgb(16, 80, 37);
+            background: #F082AC
         }
 
 
         div.laotou {
-            color: rgb(171, 182, 29);
+            color: #77E0B3
         }
 
         .laotou .role {
-            background: rgb(171, 182, 29);
+            background: #77E0B3
         }
 
 
         div.shiqian {
-            color: rgb(79, 47, 147);
+            color: #FF7A53
         }
 
         .shiqian .role {
-            background: rgb(79, 47, 147);
+            background: #FF7A53
         }
 
 
         div.wusong {
-            color: rgb(143, 213, 213);
+            color: #6b8cff
         }
 
         .wusong .role {
-            background: rgb(143, 213, 213);
+            background: #6b8cff
         }
+
         div.gaoqiu {
-            color: rgb(143, 213, 213);
+            color: #3AB5E0
         }
 
         .gaoqiu .role {
-            background: rgb(143, 213, 213);
+            background: #3AB5E0
         }
+
         div.shiguan {
-            color: rgb(143, 213, 213);
+            color: #6F54DF
         }
 
         .shiguan .role {
-            background: rgb(143, 213, 213);
+            background: #6F54DF
         }
     </style>
 </head>
@@ -139,11 +144,10 @@
 
             if (highlightedLine) {
 
-                document.querySelectorAll('#linesContainer>div').forEach((d) => {
+                document.querySelectorAll('#linesContainer>div').forEach((d, index) => {
                     d.classList.remove('highlight');
                     d.classList.remove('secondHighlight');
                     d.classList.remove('thirdHighlight');
-                    return;
                 });
 
                 // Add highlight to the clicked div
@@ -162,7 +166,8 @@
                         top: scrollTop,
                         behavior: 'smooth',
                     })
-                }, 0);
+                    highlightedLine.offsetHeight;
+                }, 1);
             }
         }
 
@@ -210,7 +215,7 @@
                     div.classList.add('shiguan');
                 }
 
-                ['二狗', '宋江', '牢头', '时迁', '武松','高俅','史官'].map((text) => {
+                ['二狗', '宋江', '牢头', '时迁', '武松', '高俅', '史官'].map((text) => {
                     line = line.replace(new RegExp(`^${text}`), `<span class='role'>${text}</span>`);
                 });
 
@@ -293,7 +298,7 @@
 宋江 哎，我在这墙上又写了一遍。
 二狗 不是这也太潦草了，看不清啊。
 宋江 眼睛瞪得像铜铃，射出闪电般的精明。都不如砍死高俅那个老贼!砍他!弄丫的!
-二狗 么直白也叫诗吗?
+二狗 这么直白也叫诗吗?
 宋江 哈哈哈，失态了。小兄弟，既然你我狱友一场，不如今日结为异姓兄弟如何呀?
 二狗 结拜?
 宋江 不求同年同月同日生，但求...
